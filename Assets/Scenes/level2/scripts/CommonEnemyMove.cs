@@ -24,7 +24,7 @@ public class CommonEnemyMove : MonoBehaviour
     void FixedUpdate()
     {
         PathLength += 1;
-        if (PathLength == 100)
+        if (PathLength == 200)
         {
             direction *= -1f;
             PathLength = 0;
