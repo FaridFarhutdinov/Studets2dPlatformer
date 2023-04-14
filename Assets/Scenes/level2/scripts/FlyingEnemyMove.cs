@@ -6,7 +6,7 @@ public class FlyingEnemyMove : MonoBehaviour
 {
     public float speed = 4f;
     float direction = -1f;
-    int kostil = 0;
+    int PathLength = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,18 +20,18 @@ public class FlyingEnemyMove : MonoBehaviour
         transform.localScale = new Vector3(direction, 1, 1);
     }
 
-    /*void 2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "level")
             direction *= -1f;
-    }*/
+    }
 
     void FixedUpdate()
     {
-        kostil += 1;
-        if (kostil == 450){
+        PathLength += 1;
+        if (PathLength == 450){
             direction *= -1f;
-            kostil = 0;
+            PathLength = 0;
         }
     }
 

@@ -6,6 +6,8 @@ public class CommonEnemyMove : MonoBehaviour
 {
     public float speed = 7f;
     float direction = -1f;
+    int PathLength = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +21,18 @@ public class CommonEnemyMove : MonoBehaviour
         transform.localScale = new Vector3(direction, 1, 1);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void FixedUpdate()
+    {
+        PathLength += 1;
+        if (PathLength == 100)
+        {
+            direction *= -1f;
+            PathLength = 0;
+        }
+    }
+    /*void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "level")
             direction *= -1f;
-    }
+    }*/
 }
