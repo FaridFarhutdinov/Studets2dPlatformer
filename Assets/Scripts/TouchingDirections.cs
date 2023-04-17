@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TouchingDirections : MonoBehaviour
 {
     public ContactFilter2D castFilter;
     public float groundDistance = 0.05f;
+    public int HP = 3;
 
     CapsuleCollider2D touchingCol;
     Animator animator;
@@ -31,5 +33,14 @@ public class TouchingDirections : MonoBehaviour
     private void FixedUpdate()
     {
         IsGrounded = touchingCol.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0;
+        if (HP == 0)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "obstacle")
+            HP -= 1;
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
