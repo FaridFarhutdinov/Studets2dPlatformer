@@ -18,12 +18,13 @@ public class FlyingEnemyMove : MonoBehaviour
     void Update()
     {
         //GetComponent<Rigidbody2D>().velocity = new Vector2(speed * directionX, GetComponent<Rigidbody2D>().velocity.y);
-        transform.position = transform.position + new Vector3(directionX * speed * Time.deltaTime, directionY * speed * Time.deltaTime, 0);
-        transform.localScale = new Vector3(directionX, 1, 1);
     }
 
     void FixedUpdate()
     {
+        transform.position = transform.position + new Vector3(directionX * speed, directionY * speed, 0);
+        transform.localScale = new Vector3(directionX, 1, 1);
+
         PathLength += 1;
         if (PathLength == 300){
             directionX *= -1f;

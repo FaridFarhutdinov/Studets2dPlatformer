@@ -17,17 +17,19 @@ public class HuntEnemyMove : MonoBehaviour
     void Update()
     {
         //GetComponent<Rigidbody2D>().velocity = new Vector2(speed * direction, GetComponent<Rigidbody2D>().velocity.y);
-        //transform.localScale = new Vector3(direction, 1, 1);
+
+        
     }
 
     void FixedUpdate()
     {
-            
+        transform.localScale = new Vector3(direction, 1, 1);
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player") ;
+        if (other.tag == "Player")
+            transform.position = transform.position + new Vector3(direction * speed, direction * speed, 0); ;
     }
     /*void OnCollisionEnter2D(Collision2D col)
     {
