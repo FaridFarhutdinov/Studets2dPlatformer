@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TouchingDirections : MonoBehaviour
 {
+    private Rigidbody2D rb;
     public ContactFilter2D castFilter;
     public float groundDistance = 0.05f;
     public int HP = 3;
@@ -27,20 +28,21 @@ public class TouchingDirections : MonoBehaviour
     private void Awake()
     {
         touchingCol = GetComponent<CapsuleCollider2D>();
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
         IsGrounded = touchingCol.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0;
-        if (HP == 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "obstacle")
             HP -= 1;
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (HP == 0)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
 }

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class FlyingEnemyMove : MonoBehaviour
 {
-    public float speed = 4f;
-    float directionX = -1f;
-    float directionY = -1f;
+    public float speed = 4;
+    float directionX = -1;
+    float directionY = -1;
     int PathLength = 0;
+    int HP = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,13 @@ public class FlyingEnemyMove : MonoBehaviour
             directionY *= -1f;
         }
 
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Hit") { HP--;}
+
+        if (HP == 0) { Destroy(this); }
     }
 
 }

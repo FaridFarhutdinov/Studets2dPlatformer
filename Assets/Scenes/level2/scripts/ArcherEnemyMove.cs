@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HuntEnemyMove : MonoBehaviour
+public class ArcherEnemyMove : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float speed;
     public float aggro;
-    public GameObject Player;
+    public Transform Player;
+    public GameObject arrow;
+    public Transform startPos;
 
     void Start()
     {
@@ -23,14 +24,8 @@ public class HuntEnemyMove : MonoBehaviour
 
     void StartHunting()
     {
-        if (Player.transform.position.x < transform.position.x) {
-            rb.velocity = new Vector2(-speed, 0);
-            transform.localScale = new Vector2(1, 1);
-        }
-
-        else if (Player.transform.position.x > transform.position.x){
-            rb.velocity = new Vector2(speed, 0);
-            transform.localScale = new Vector2(-1, 1);
+        if (Player.transform.position.x * Player.transform.position.x + Player.transform.position.y * Player.transform.position.y < transform.position.x * transform.position.x) {
+            Instantiate(arrow, startPos.position, Quaternion.identity);
         }
     }
 
