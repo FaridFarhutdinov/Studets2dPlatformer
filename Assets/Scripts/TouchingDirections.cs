@@ -40,7 +40,10 @@ public class TouchingDirections : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "obstacle")
+        {
             HP -= 1;
+            rb.AddForce(new Vector2(0, 2) * 1000f, ForceMode2D.Force);
+        }
         if (HP == 0)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
