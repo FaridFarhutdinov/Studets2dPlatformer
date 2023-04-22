@@ -9,6 +9,8 @@ public class TouchingDirections : MonoBehaviour
     public float wallDistance = 0.2f;
     public float ceilingDistance = 0.05f;
 
+    public int hpPlayer = 3;
+
     CapsuleCollider2D touchingCol;
     Animator animator;
 
