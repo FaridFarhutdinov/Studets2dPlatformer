@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class FlyingEnemyMove : MonoBehaviour
 {
-    public float speed = 4f;
-    float directionX = -1f;
-    float directionY = -1f;
+    public float speed = 4;
+    float directionX = -1;
+    float directionY = -1;
     int PathLength = 0;
+    int HP = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,29 +18,31 @@ public class FlyingEnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //GetComponent<Rigidbody2D>().velocity = new Vector2(speed * direction, GetComponent<Rigidbody2D>().velocity.y);
-        transform.position = transform.position + new Vector3(directionX * speed * Time.deltaTime, directionY * speed * Time.deltaTime, 0);
-        transform.localScale = new Vector3(directionX, 1, 1);
-    }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "level")
-            directionX *= -1f;
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(speed * directionX, GetComponent<Rigidbody2D>().velocity.y);
     }
 
     void FixedUpdate()
     {
+        transform.position = transform.position + new Vector3(directionX * speed, directionY * speed, 0);
+        transform.localScale = new Vector3(directionX, 1, 1);
+
         PathLength += 1;
-        if (PathLength == 450){
+        if (PathLength == 300){
             directionX *= -1f;
-            PathLength = 0;
+            PathLength = 1;
         }
 
         if (PathLength % 30 == 0){
             directionY *= -1f;
         }
 
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Hit") { HP--;}
+
+        if (HP == 0) { Destroy(this); }
     }
 
 }
