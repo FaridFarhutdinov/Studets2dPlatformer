@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TouchingDirections : MonoBehaviour
 {
@@ -78,5 +79,14 @@ public class TouchingDirections : MonoBehaviour
         IsGrounded = touchingCol.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0;
         IsOnWall = touchingCol.Cast(wallCheckDirection, castFilter, wallHits, wallDistance) > 0;
         IsOnCeiling = touchingCol.Cast(Vector2.up, castFilter, ceilingHits, ceilingDistance) > 0;
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "obstacle")
+        {
+            hpPlayer -= 1;
+        }
+        if (hpPlayer == 0)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
