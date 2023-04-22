@@ -19990,21 +19990,17 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 8535057856789050974, guid: e0dc9412dd9eb7847a95ca0bdb15eb89, type: 3}
-      propertyPath: jumpImpulse
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 8890919137403396349, guid: e0dc9412dd9eb7847a95ca0bdb15eb89, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8890919137403396349, guid: e0dc9412dd9eb7847a95ca0bdb15eb89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.56
+      value: 55.2
       objectReference: {fileID: 0}
     - target: {fileID: 8890919137403396349, guid: e0dc9412dd9eb7847a95ca0bdb15eb89, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.31
+      value: 26.8
       objectReference: {fileID: 0}
     - target: {fileID: 8890919137403396349, guid: e0dc9412dd9eb7847a95ca0bdb15eb89, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20097,14 +20093,14 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenY: 0.65
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
+  m_DeadZoneWidth: 0.2
+  m_DeadZoneHeight: 0.4
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneHeight: 0.6
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
@@ -20400,6 +20396,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 620518250}
+    - target: {fileID: 7632104736769568853, guid: 0afd9d1b376f570488e9c6c74c99d333, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8127469698438802563, guid: 0afd9d1b376f570488e9c6c74c99d333, type: 3}
       propertyPath: m_Size.x
       value: 1.1962585
@@ -20585,7 +20585,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447826782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.56, y: 25.31, z: -10}
+  m_LocalPosition: {x: 55.2, y: 28.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20860,7 +20860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997732520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.56, y: 25.31, z: -10}
+  m_LocalPosition: {x: 55.2, y: 28.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
