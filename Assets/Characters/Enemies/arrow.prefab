@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3669795689260534980}
   m_Layer: 0
   m_Name: arrow
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d432e48d6d0d4c488b86fc878315307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 0.1
+  force: 0.025
   Player: {fileID: 8890919137403396349, guid: e0dc9412dd9eb7847a95ca0bdb15eb89, type: 3}

@@ -13,10 +13,14 @@ public class ArcherEnemyMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Instantiate(arrow, startPos.position, Quaternion.identity);
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        if (transform.position.x - Player.position.x > 0)
+            transform.localScale = new Vector3(1, 1, 1);
+        else transform.localScale = new Vector3(-1, 1, 1);
         float DistToPlayer = Vector2.Distance(transform.position, Player.transform.position);
         if (DistToPlayer < aggro) StartHunting();
         else StopHunting();
@@ -24,9 +28,7 @@ public class ArcherEnemyMove : MonoBehaviour
 
     void StartHunting()
     {
-        if (Player.transform.position.x * Player.transform.position.x + Player.transform.position.y * Player.transform.position.y < transform.position.x * transform.position.x) {
             Instantiate(arrow, startPos.position, Quaternion.identity);
-        }
     }
 
     void StopHunting() { rb.velocity = new Vector2(0, 0); }
