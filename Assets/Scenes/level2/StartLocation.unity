@@ -19990,6 +19990,14 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8535057856789050974, guid: e0dc9412dd9eb7847a95ca0bdb15eb89, type: 3}
+      propertyPath: Hit
+      value: 
+      objectReference: {fileID: 1014157891672953294, guid: 7e95aeac1b7a72a40b6052950cb52045, type: 3}
+    - target: {fileID: 8535057856789050974, guid: e0dc9412dd9eb7847a95ca0bdb15eb89, type: 3}
+      propertyPath: _isMoving
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8890919137403396349, guid: e0dc9412dd9eb7847a95ca0bdb15eb89, type: 3}
       propertyPath: m_RootOrder
       value: 1
