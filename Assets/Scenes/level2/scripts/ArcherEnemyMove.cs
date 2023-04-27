@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArcherEnemyMove : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private float direction = 1;
     public float aggro;
     public Transform Player;
     public GameObject arrow;
@@ -17,11 +18,10 @@ public class ArcherEnemyMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (transform.position.x - Player.position.x > 0)
-            transform.localScale = new Vector3(1, 1, 1);
-        else transform.localScale = new Vector3(-1, 1, 1);
+        if (Player.position.x < transform.position.x) direction *= -1;
+        transform.localScale = new Vector3(direction, 1, 1);
 
-        float DistToPlayer = Vector2.Distance(transform.position, Player.transform.position);
+        float DistToPlayer = Vector2.Distance(transform.position, Player.position);
 
         if (DistToPlayer < aggro) StartHunting();
         else StopHunting();
