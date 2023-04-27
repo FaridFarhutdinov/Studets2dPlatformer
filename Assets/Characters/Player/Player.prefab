@@ -133,6 +133,7 @@ MonoBehaviour:
   runSpeed: 8
   airWalkSpeed: 5
   jumpImpulse: 10
+  Hit: {fileID: 0}
   _isMoving: 0
   _isRunning: 0
   _isFacingRgith: 1
@@ -182,7 +183,19 @@ MonoBehaviour:
     m_ActionId: 0f2a7bdc-de65-4ecf-902b-3c1bfb1c73a1
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8535057856789050974}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3445ae60-cc8e-4d13-88f2-8d8e2d632ac2
     m_ActionName: Player/Attack[/Mouse/leftButton]
   - m_PersistentCalls:
