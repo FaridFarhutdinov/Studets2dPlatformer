@@ -154,8 +154,9 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             animator.SetTrigger(AnimationStrings.attackTrigger);
-            Instantiate(Hit, transform.position, Quaternion.identity);
-            Destroy(Hit);
+            var HitPos = new Vector2(transform.position.x + 1.5f, transform.position.y);
+            var HitCopy = Instantiate(Hit, HitPos, Quaternion.identity);
+            Destroy(HitCopy, 0.1f);
         }
     }
 }
