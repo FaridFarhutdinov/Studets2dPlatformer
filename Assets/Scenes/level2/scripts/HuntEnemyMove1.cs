@@ -7,6 +7,7 @@ public class HuntEnemyMove : MonoBehaviour
     private Rigidbody2D rb;
     public float speed;
     public float aggro;
+    public int hp = 3;
     public GameObject Player;
 
     void Start()
@@ -35,5 +36,15 @@ public class HuntEnemyMove : MonoBehaviour
     }
 
     void StopHunting() { rb.velocity = new Vector2(0, 0); }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Hit")
+        {
+            hp -= 1;
+        }
+        if (hp == 0)
+            Destroy(this.gameObject);
+    }
 
 }

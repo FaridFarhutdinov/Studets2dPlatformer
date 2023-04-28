@@ -7,6 +7,7 @@ public class CommonEnemyMove : MonoBehaviour
     public float speed = 7f;
     float direction = -1f;
     int PathLength = 0;
+    public int hp = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +31,14 @@ public class CommonEnemyMove : MonoBehaviour
             PathLength = 0;
         }
     }
-    /*void OnCollisionEnter2D(Collision2D col)
+
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "level")
-            direction *= -1f;
-    }*/
+        if (col.gameObject.tag == "Hit")
+        {
+            hp -= 1;
+        }
+        if (hp == 0)
+            Destroy(this.gameObject);
+    }
 }

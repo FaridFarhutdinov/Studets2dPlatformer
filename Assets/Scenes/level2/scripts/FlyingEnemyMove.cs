@@ -8,7 +8,7 @@ public class FlyingEnemyMove : MonoBehaviour
     float directionX = -1;
     float directionY = -1;
     int PathLength = 0;
-    int HP = 3;
+    public int hp = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,11 +38,14 @@ public class FlyingEnemyMove : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (other.gameObject.tag == "Hit") { HP--;}
-
-        if (HP == 0) { Destroy(this); }
+        if (col.gameObject.tag == "Hit")
+        {
+            hp -= 1;
+        }
+        if (hp == 0)
+            Destroy(this.gameObject);
     }
 
 }

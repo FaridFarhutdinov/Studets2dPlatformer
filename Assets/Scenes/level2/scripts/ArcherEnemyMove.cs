@@ -5,9 +5,8 @@ using UnityEngine;
 public class ArcherEnemyMove : MonoBehaviour
 {
     private Rigidbody2D rb;
-    //public float aggro = 10;
-    //public GameObject Player;
     public GameObject arrow;
+    public int hp = 3;
     public Transform startPos;
 
     void Start()
@@ -28,4 +27,13 @@ public class ArcherEnemyMove : MonoBehaviour
         Instantiate(arrow, startPos.position, Quaternion.identity);
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Hit")
+        {
+            hp -= 1;
+        }
+        if (hp == 0)
+            Destroy(this.gameObject);
+    }
 }
