@@ -79,7 +79,9 @@ public class TouchingDirections : MonoBehaviour
         IsGrounded = touchingCol.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0;
         IsOnWall = touchingCol.Cast(wallCheckDirection, castFilter, wallHits, wallDistance) > 0;
         IsOnCeiling = touchingCol.Cast(Vector2.up, castFilter, ceilingHits, ceilingDistance) > 0;
+        if (transform.position.y < -6){ SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
     }
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "obstacle")

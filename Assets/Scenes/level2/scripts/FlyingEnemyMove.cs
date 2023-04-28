@@ -9,17 +9,6 @@ public class FlyingEnemyMove : MonoBehaviour
     float directionY = -1;
     int PathLength = 0;
     public int hp = 3;
-    // Start is called before the first frame update
-    void Start()
-    {
-    
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //GetComponent<Rigidbody2D>().velocity = new Vector2(speed * directionX, GetComponent<Rigidbody2D>().velocity.y);
-    }
 
     void FixedUpdate()
     {
@@ -40,12 +29,8 @@ public class FlyingEnemyMove : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Hit")
-        {
-            hp -= 1;
-        }
-        if (hp == 0)
-            Destroy(this.gameObject);
+        if (col.gameObject.tag == "Hit") hp -= 1;
+        if (hp == 0) Destroy(this.gameObject);
     }
 
 }

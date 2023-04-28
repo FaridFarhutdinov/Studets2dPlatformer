@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float runSpeed = 8f;
     public float airWalkSpeed = 3f;
     public float jumpImpulse = 10f;
+    public Transform HitPos;
     public GameObject Hit;
     Vector2 moveInput;
     TouchingDirections touchingDirections;
@@ -154,8 +155,7 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             animator.SetTrigger(AnimationStrings.attackTrigger);
-            var HitPos = new Vector2(transform.position.x + 1.5f, transform.position.y);
-            var HitCopy = Instantiate(Hit, HitPos, Quaternion.identity);
+            var HitCopy = Instantiate(Hit, HitPos.position, Quaternion.identity);
             Destroy(HitCopy, 0.1f);
         }
     }

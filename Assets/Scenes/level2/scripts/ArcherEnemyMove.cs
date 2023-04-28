@@ -29,11 +29,7 @@ public class ArcherEnemyMove : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Hit")
-        {
-            hp -= 1;
-        }
-        if (hp == 0)
-            Destroy(this.gameObject);
+        if (col.gameObject.tag == "Hit") hp -= 1;
+        if (hp == 0) Destroy(this.gameObject);
     }
 }
