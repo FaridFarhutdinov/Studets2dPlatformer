@@ -159,4 +159,13 @@ public class PlayerController : MonoBehaviour
             Destroy(HitCopy, 0.1f);
         }
     }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (Time.timeScale == 1) Time.timeScale = 0;
+            else Time.timeScale = 1;
+        }
+    }
 }
