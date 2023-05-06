@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
 public class PlayerController : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float jumpImpulse = 10f;
     public Transform HitPos;
     public GameObject Hit;
+    public string sceneName;
     Vector2 moveInput;
     TouchingDirections touchingDirections;
 
@@ -164,8 +166,9 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            if (Time.timeScale == 1) Time.timeScale = 0;
-            else Time.timeScale = 1;
+            //  if (Time.timeScale == 1) Time.timeScale = 0;
+            // else Time.timeScale = 1;
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
