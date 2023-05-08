@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class TouchingDirections : MonoBehaviour
 {
-    public ContactFilter2D castFilter;
+    public ContactFilter2D castFilter; 
+    private Rigidbody2D rb;
     public float groundDistance = 0.05f;
     public float wallDistance = 0.2f;
     public float ceilingDistance = 0.05f;
 
     public int hpPlayer = 3;
+    private bool invulnerability = false;
 
     CapsuleCollider2D touchingCol;
     Animator animator;
@@ -72,6 +74,7 @@ public class TouchingDirections : MonoBehaviour
     {
         touchingCol = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -84,11 +87,19 @@ public class TouchingDirections : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "obstacle")
-        {
-            hpPlayer -= 1;
-        }
+        if (invulnerability == false && (col.gameObject.tag == "Enemy" || col.gameObject.tag == "obstacle")) 
+            TakeDamage();
         if (hpPlayer == 0)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    private void TakeDamage()
+    {
+        hpPlayer -= 1;
+        rb.AddForce(new Vector2(-15 * transform.localScale.x, 10) * 25f, ForceMode2D.Force);
+        invulnerability = true;
+        Invoke("invulnerabilityfalse", 3f);
+    }
+
+    private void invulnerabilityfalse() { invulnerability = false; }
 }
