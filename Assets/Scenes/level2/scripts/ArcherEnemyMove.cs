@@ -7,6 +7,7 @@ public class ArcherEnemyMove : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject arrow;
     public int hp = 3;
+    private bool IsHeNear = false;
     public Transform startPos;
 
     void Start()
@@ -16,15 +17,29 @@ public class ArcherEnemyMove : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.tag == "Player")
         {
-            InvokeRepeating("StartHunting", 1.0f, 1.5f);
+            IsHeNear = true;
+            Hunting();
         }
     }
 
-    void StartHunting()
+    void OnTriggerExit2D(Collider2D other)
     {
-        Instantiate(arrow, startPos.position, Quaternion.identity);
+        if (other.tag == "Player")
+        {
+            IsHeNear = false;
+            Hunting();
+        }
+    }
+
+    void Hunting()
+    {
+        if (IsHeNear == true)
+        {
+            Instantiate(arrow, startPos.position, Quaternion.identity);
+            Invoke("Hunting", 2f);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
