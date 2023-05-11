@@ -29,7 +29,18 @@ public class ArcherEnemyMove : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Hit") hp -= 1;
-        if (hp == 0) Destroy(this.gameObject);
+        if (col.gameObject.tag == "Hit") TakeDamage();
+        if (hp == 0) DiesOfCringe();
+    }
+
+    private void TakeDamage()
+    {
+        hp -= 1;
+        rb.AddForce(new Vector2(-15 * transform.localScale.x, 5) * 10f, ForceMode2D.Force);
+    }
+
+    private void DiesOfCringe()
+    {
+        Destroy(this.gameObject);
     }
 }

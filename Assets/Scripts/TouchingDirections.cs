@@ -83,6 +83,7 @@ public class TouchingDirections : MonoBehaviour
         IsOnWall = touchingCol.Cast(wallCheckDirection, castFilter, wallHits, wallDistance) > 0;
         IsOnCeiling = touchingCol.Cast(Vector2.up, castFilter, ceilingHits, ceilingDistance) > 0;
         if (transform.position.y < -6){ SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+        
     }
 
     void OnCollisionEnter2D(Collision2D col)
