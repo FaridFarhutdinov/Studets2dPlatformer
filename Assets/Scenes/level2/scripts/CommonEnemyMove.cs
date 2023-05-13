@@ -68,7 +68,7 @@ public class CommonEnemyMove : MonoBehaviour
         else if(WalkDirection == WalkableDirection.Left)
         {
             WalkDirection = WalkableDirection.Right;
-        }
+        } 
         else
         {
             Debug.LogError("пиздец");
