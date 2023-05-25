@@ -5,32 +5,28 @@ using UnityEngine;
 public class FlyingEnemyMove : MonoBehaviour
 {
     public float speed = 4;
-    float directionX = -1;
-    float directionY = -1;
+    float directionX = -1f;
+    //float directionY = -1f;
     int PathLength = 0;
-    public int hp = 3;
+   // float sin = 0.2f;
 
     void FixedUpdate()
     {
-        transform.position = transform.position + new Vector3(directionX * speed, directionY * speed, 0);
+        transform.position = transform.position + new Vector3(directionX * speed, 0, 0);
         transform.localScale = new Vector3(directionX, 1, 1);
 
         PathLength += 1;
-        if (PathLength == 300){
+        if (PathLength == 300) {
             directionX *= -1f;
             PathLength = 1;
         }
 
-        if (PathLength % 30 == 0){
-            directionY *= -1f;
+        /*if (PathLength % 5 == 0) {
+            directionY += sin;
         }
 
+        if (directionY == 1 || directionY == -1) {
+            sin *= -1;
+        }*/
     }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Hit") hp -= 1;
-        if (hp == 0) Destroy(this.gameObject);
-    }
-
 }
