@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dialogue_script : MonoBehaviour
 {
@@ -12,25 +13,25 @@ public class Dialogue_script : MonoBehaviour
     void Start()
     {
         panelDialogue.SetActive(false);
+        Debug.Log("Сообщение для отладки");
     }
 
-    private void OnCollisionEnter(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Player") {
-            Time.timeScale = 0;
+        if (col.gameObject.tag == "Player") {
             panelDialogue.SetActive(true);
-            InvokeRepeating("Tiping", 0.5f, 3f);
+            InvokeRepeating("Tiping", 0.5f, 3.0f);
         }
-
     }
 
     private void Tiping()
     {
         dialogue.text = message[index];
         index++;
-        if (message[index] == null) {
+        if (message[index] == "0")
+        {
             CancelInvoke();
-            Time.timeScale = 0;
+            panelDialogue.SetActive(false);
         }
     }
 
