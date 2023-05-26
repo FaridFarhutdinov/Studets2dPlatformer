@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7230b6f710b244a419f8b70e777cac12
+guid: aa8079e8079529442b64fb298a4e5602
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - m5x7
+  - F77 Minecraft
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

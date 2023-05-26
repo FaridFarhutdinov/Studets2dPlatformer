@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Dialouge_window.uss?fileID=7433441132597879392&amp;guid=a9a74043264f57641851b84616ca1a40&amp;type=3#Dialouge_window" />
+    <ui:VisualElement name="Dialogue_window" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
+</ui:UXML>
