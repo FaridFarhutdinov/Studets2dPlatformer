@@ -21,6 +21,7 @@ public class Damageable : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private float _health = 100;
 
     public float Health
@@ -40,6 +41,7 @@ public class Damageable : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private bool _isAlive = true;
 
     public bool IsAlive
@@ -58,17 +60,5 @@ public class Damageable : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
