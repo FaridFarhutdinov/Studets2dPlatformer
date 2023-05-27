@@ -9,16 +9,16 @@ public class Dialogue_script : MonoBehaviour
     public Text dialogue;
     public string[] message;
     private int index = 0;
+    bool flag = true;
 
     void Start()
     {
         panelDialogue.SetActive(false);
-        Debug.Log("Сообщение для отладки");
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player") {
+        if (col.gameObject.tag == "Player" && flag == true) {
             panelDialogue.SetActive(true);
             InvokeRepeating("Tiping", 0.5f, 3.0f);
         }
@@ -32,6 +32,8 @@ public class Dialogue_script : MonoBehaviour
         {
             CancelInvoke();
             panelDialogue.SetActive(false);
+            flag = false;
+            index = 0;
         }
     }
 

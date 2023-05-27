@@ -51,7 +51,7 @@ public class ArcherEnemyMove : MonoBehaviour
     private void TakeDamage()
     {
         hp -= 1;
-        rb.AddForce(new Vector2(-15 * transform.localScale.x, 5) * 10f, ForceMode2D.Force);
+        rb.AddForce(new Vector2(-7 * transform.localScale.x, 3) * 10f, ForceMode2D.Force);
     }
 
     private void DiesOfCringe()
