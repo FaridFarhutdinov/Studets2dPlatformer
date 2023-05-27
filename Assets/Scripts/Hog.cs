@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Hog : MonoBehaviour
 {
-    public float walkSpeed  = 3f;
-    private int direction = -1;
+    public float walkSpeed  = 0.6f;
+    private int direction = -5;
     private bool Is_Stuned = false;
-    public int BossHp = 30;
+    public int BossHp = 15;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -28,9 +28,12 @@ public class Hog : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (Is_Stuned == false)
+        if (other.tag == "Player")
         {
-            rb.velocity = new Vector2(walkSpeed * direction * 5, rb.velocity.y);
+            if (Is_Stuned == false)
+            {
+                rb.velocity = new Vector2(walkSpeed * direction * 5, rb.velocity.y);
+            }
         }
     }
 
@@ -39,11 +42,11 @@ public class Hog : MonoBehaviour
         if (col.gameObject.tag == "walls")
         {
             Is_Stuned = true;
-            rb.AddForce(new Vector2(-15 * transform.localScale.x, 5) * 10f, ForceMode2D.Force);
+            // rb.AddForce(new Vector2(-15 * transform.localScale.x, 5) * 10f, ForceMode2D.Force);
             Invoke("Prosnuca", 3f);
         }
 
-        if (col.gameObject.tag == "hit")
+        if (col.gameObject.tag == "Hit")
         {
             BossHp--;
         }
@@ -52,7 +55,7 @@ public class Hog : MonoBehaviour
     void Prosnuca()
     {
         direction *= -1;
-        transform.localScale = new Vector3(direction, 1, 1);
+        transform.localScale = new Vector3(direction, 5, 5);
         Is_Stuned = false;
     }
 
