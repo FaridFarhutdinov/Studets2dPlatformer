@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa27200b74efb984bb2251160f532cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExpPoint: {fileID: 5372279751950682618, guid: ac6d10e9b2729fb4fb1d95b88eb38aec, type: 3}
   walkSpeed: 3
   hp: 3
   attackZone: {fileID: 249203896008171271}
@@ -236,6 +237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  _health: 100
+  _isAlive: 1
 --- !u!1 &5427022067751910478
 GameObject:
   m_ObjectHideFlags: 0

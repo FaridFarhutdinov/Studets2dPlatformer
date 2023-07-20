@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Hit
   - walls
+  - Collected
   layers:
   - Default
   - TransparentFX

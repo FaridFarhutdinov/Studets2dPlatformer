@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
 public class Knight : MonoBehaviour
 {
+    public GameObject ExpPoint;
     public float walkSpeed = 3f;
     public int hp = 3;
     public DetectionZone attackZone;
@@ -90,10 +91,16 @@ public class Knight : MonoBehaviour
         }
     }
 
+    void Death()
+    {
+        Instantiate(ExpPoint, rb.position, Quaternion.identity);
+        Destroy(this.gameObject);
+    }
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Hit") hp -= 1;
-        if (hp == 0) Destroy(this.gameObject);
+        if (hp == 0) Death();
     }
 
     void Start()
